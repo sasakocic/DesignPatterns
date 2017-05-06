@@ -1,6 +1,6 @@
 # Design Patterns
 
-Some examples for my son.
+Some examples ff§or my son.
 
 ## Singleton
 
