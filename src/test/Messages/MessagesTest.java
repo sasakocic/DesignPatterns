@@ -7,7 +7,7 @@ import Messages.Messages;
 import static org.junit.Assert.assertEquals;
 
 public class MessagesTest {
-    Messages m = new Messages();
+    Messages messages = new Messages();
 
     @Before
     public void before() throws Exception {
@@ -19,23 +19,34 @@ public class MessagesTest {
 
     @Test
     public void testEmpty() {
-        assertEquals(m.getCount(), 0);
+        assertEquals(messages.getCount(), 0);
     }
 
     @Test
     public void testCount() {
-        assertEquals(m.getCount(), 0);
-        m.pushMessage("Message A");
-        assertEquals(m.getCount(), 1);
-        m.pushMessage("Message B");
-        assertEquals(m.getCount(), 2);
+        messages.pushMessage("Message A");
+        assertEquals(messages.getCount(), 1);
+        messages.pushMessage("Message B");
+        assertEquals(messages.getCount(), 2);
     }
 
     @Test
     public void testLastInFirstOut() {
-        m.pushMessage("Message A");
-        m.pushMessage("Message B");
-        assertEquals(m.popMessage(), "Message B");
-        assertEquals(m.popMessage(), "Message A");
+        messages.pushMessage("Message A");
+        messages.pushMessage("Message B");
+        assertEquals(messages.popMessage(), "Message B");
+        assertEquals(messages.popMessage(), "Message A");
+    }
+
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void testOverflow() {
+        for (int i=0; i <= Messages.MAX; i++) {
+            messages.pushMessage("Some message");
+        }
+    }
+
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void testUnderflow() {
+        messages.popMessage();
     }
 }
