@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
 import Messages.Messages;
-import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 public class MessagesTest {
