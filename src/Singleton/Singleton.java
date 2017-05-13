@@ -1,13 +1,11 @@
 package Singleton;
 
-public class Singleton {
+class Singleton {
     private static Singleton instance;
 
-    public static Singleton getInstance()
-    {
+    static Singleton getInstance() {
         if (instance == null) {
-            Singleton aSingleton = new Singleton();
-            instance = aSingleton;
+            instance = new Singleton();
         }
 
         return instance;

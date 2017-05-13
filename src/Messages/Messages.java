@@ -10,7 +10,7 @@ public class Messages {
     }
 
     public void pushMessage(String message) throws ArrayIndexOutOfBoundsException {
-        if (count == MAX -1)
+        if (count == MAX - 1)
             throw new ArrayIndexOutOfBoundsException("Cannot push more than " + MAX + " messages");
         messages[count++] = message;
     }

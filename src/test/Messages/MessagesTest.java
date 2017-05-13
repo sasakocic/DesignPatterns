@@ -4,10 +4,11 @@ import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
 import Messages.Messages;
+
 import static org.junit.Assert.assertEquals;
 
 public class MessagesTest {
-    Messages messages = new Messages();
+    private Messages messages = new Messages();
 
     @Before
     public void before() throws Exception {
@@ -40,7 +41,7 @@ public class MessagesTest {
 
     @Test(expected = ArrayIndexOutOfBoundsException.class)
     public void testOverflow() {
-        for (int i=0; i <= Messages.MAX; i++) {
+        for (int i = 0; i <= Messages.MAX; i++) {
             messages.pushMessage("Some message");
         }
     }
